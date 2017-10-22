@@ -16,19 +16,23 @@ public:
         Reserve(StartCapacity);
     }
 
-    ~TVector() {
+    ~TVector()
+    {
         delete[] Buffer;
     }
 
-    const T& operator [] (size_t index) const {
+    const T& operator [] (size_t index) const
+    {
         return Buffer[index];
     }
 
-    T& operator [] (size_t index) {
+    T& operator [] (size_t index)
+    {
         return Buffer[index];
     }
 
-    void PushBack(const T& value) {
+    void PushBack(const T& value)
+    {
         if (Size == Capacity) {
             size_t newCapacity = size_t(Capacity * GrowthFactor) + 1;
             Reserve(newCapacity);
@@ -37,7 +41,8 @@ public:
         Buffer[Size++] = value;
     }
 
-    void Resize(size_t size, const T& value = T()) {
+    void Resize(size_t size, const T& value = T())
+    {
         if (size <= Size) {
             Size = size;
             return;
@@ -48,7 +53,8 @@ public:
         Size = size;
     }
 
-    void Reserve(size_t capacity) {
+    void Reserve(size_t capacity)
+    {
         if (capacity <= Capacity) {
             return;
         }
@@ -61,15 +67,18 @@ public:
         }
     }
 
-    bool IsEmpty() const {
+    bool IsEmpty() const
+    {
         return Size == 0;
     }
 
-    size_t GetSize() const {
+    size_t GetSize() const
+    {
         return Size;
     }
 
-    size_t GetCapacity() const {
+    size_t GetCapacity() const
+    {
         return Capacity;
     }
 
@@ -79,16 +88,19 @@ public:
             : Ptr(ptr)
         {}
 
-        T& operator * () {
+        T& operator * ()
+        {
             return *Ptr;
         }
 
-        TIterator& operator ++ () {
+        TIterator& operator ++ ()
+        {
             ++Ptr;
             return *this;
         }
 
-        bool operator != (const TIterator& other) const {
+        bool operator != (const TIterator& other) const
+        {
             return Ptr != other.Ptr;
         }
 
@@ -96,11 +108,13 @@ public:
         T* Ptr;
     };
 
-    TIterator begin() {
+    TIterator begin()
+    {
         return TIterator(Buffer);
     }
 
-    TIterator end() {
+    TIterator end()
+    {
         return TIterator(Buffer + Size);
     }
 
