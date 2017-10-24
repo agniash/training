@@ -19,11 +19,23 @@ void test(size_t size)
     ASSERT_EQ(v1, v2);
 }
 
-TEST(PartitionTest, Test)
+TEST(QuickSortTest, TestZero)
 {
     test(0);
+}
+
+TEST(QuickSortTest, TestOne)
+{
     test(1);
+}
+
+TEST(QuickSortTest, TestTwo)
+{
     test(2);
+}
+
+TEST(QuickSortTest, TestMany)
+{
     for (size_t i = 0; i < 1000; ++i) {
         test(std::rand() % 1000);
     }
