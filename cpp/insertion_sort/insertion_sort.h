@@ -4,7 +4,7 @@
 #include <utility>
 #include <iterator>
 
-template <class Iterator, class Comparator = std::less<decltype(*std::declval<Iterator>())>>
+template <class Iterator, class Comparator = std::less<decltype(*Iterator())>>
 void InsertionSort(Iterator first, Iterator last, const Comparator& comparator = Comparator())
 {
     for (Iterator current = std::next(first); current < last; ++current) {

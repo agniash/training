@@ -14,7 +14,7 @@ namespace NQuickSortTraits {
     const size_t QuadraticSortCount = 7;
 }
 
-template <class Iterator, class Comparator = std::less<decltype(*std::declval<Iterator>())>>
+template <class Iterator, class Comparator = std::less<decltype(*Iterator())>>
 void QuickSort(Iterator first, Iterator last, const Comparator& comparator = Comparator())
 {
     while (true) {
@@ -39,7 +39,7 @@ void QuickSort(Iterator first, Iterator last, const Comparator& comparator = Com
     }
 }
 
-template <class Iterator, class Comparator = std::less<decltype(*std::declval<Iterator>())>>
+template <class Iterator, class Comparator = std::less<decltype(*Iterator())>>
 void IterativeQuickSort(Iterator first, Iterator last, const Comparator& comparator = Comparator())
 {
     std::stack<std::pair<Iterator, Iterator>> stack;
