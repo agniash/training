@@ -1,3 +1,10 @@
+/*
+ * Packed vector - vector of pairs (Value, Count) - RLE-encoded vector of numbers.
+ * Problem: Given two packed vectors get their inner product (i.e. inner product of the original vectors).
+ * Memory: O(1)
+ * Time: O(n)
+ */
+
 #pragma once
 
 #include <vector>
